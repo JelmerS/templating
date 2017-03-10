@@ -3,4 +3,12 @@
 import jinja2
 
 
-print("hello world")
+test_dict = {"vlan":3, "hostname":"Switch"}
+
+template_directory = "./testfiles"
+template_file = "test_template.config"
+output_directory = ""
+env = jinja2.Environment(loader=jinja2.FileSystemLoader(template_directory))
+template = env.get_template(template_file)
+
+print(template.render(test_dict))
